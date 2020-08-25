@@ -1,2 +1,11 @@
-<h1>Airplanes#index</h1>
-<p>Find me in app/views/airplanes/index.html.erb</p>
+<h1>Airplanes Index</h1>
+<%= link_to 'Create New Airplane', new_airplane_path%>
+<% @airplanes.each do |airplane| %>
+  <div class='info_container'>
+    <h3><%= link_to airplane.name, airplane_path(airplane.id) %></h3>
+    <p><%= link_to 'Delete', airplane_path(airplane.id), method: 'delete' %></p>
+    <span><strong>Rows:</strong><%= airplane.rows %></span>
+    <span><strong>Columns:</strong><%= airplane.columns %></span>
+    <span><strong>Seats:</strong><%= airplane.rows * airplane.columns %></span>
+  </div>
+<% end %>

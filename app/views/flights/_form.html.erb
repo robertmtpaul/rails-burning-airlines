@@ -1,0 +1,23 @@
+<%= form_for @flight do |f| %>
+  <%= f.label :flight_number, "Flight Number" %>
+  <br>
+  <%= f.text_field :flight_number %>
+  <br>
+  <%= f.label :origin %>
+  <br>
+  <%= f.select(:origin, options_for_select(@airports)) %>
+  <br>
+  <%= f.label :destination %>
+  <br>
+  <%= f.select(:destination, options_for_select(@airports)) %>
+  <br>
+  <%= f.label :date %>
+  <br>
+  <%= f.text_field :date %>
+  <br>
+  <%= f.label :airplane_id, "Airplane" %>
+  <br>
+  <%= f.select(:airplane_id, options_for_select(@airplanes)) %>
+  <br>
+  <%= f.submit 'Submit' %>
+<% end %>

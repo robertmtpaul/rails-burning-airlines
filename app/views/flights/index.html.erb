@@ -1,2 +1,11 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h1>Flights Index</h1>
+<%= link_to 'Create New Flight', new_flight_path%>
+<% @flights.each do |flight| %>
+  <div class='info_container'>
+    <h3><%= link_to "Flight #{flight.flight_number}", flight_path(flight.id) %></h3>
+    <p><%= link_to 'Delete', flight_path(flight.id), method: 'delete' %></p>
+    <span><strong>From:</strong><%= flight.origin %></span>
+    <span><strong>To:</strong><%= flight.destination %></span>
+    <span><strong>On:</strong><%=flight.date %></span>
+  </div>
+<% end %>

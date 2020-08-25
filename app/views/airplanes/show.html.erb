@@ -1,2 +1,24 @@
-<h1>Airplanes#show</h1>
-<p>Find me in app/views/airplanes/show.html.erb</p>
+<h1>The <%= @airplane.name %></h1>
+
+<%= link_to 'Edit', edit_airplane_path(@airplane.id) %>
+<p>Rows: <%= @airplane.rows %></p>
+<p>Columns: <%= @airplane.columns %></p>
+<p>Seats: <%= @airplane.columns * @airplane.rows %></p>
+
+<h3>Currently Assigned Flights</h3>
+<table>
+  <tr>
+    <td>Flight Number</td>
+    <td>Origin</td>
+    <td>Destination</td>
+    <td>Date</td>
+  </tr>
+  <% @flights.each do |flight| %>
+    <tr>
+      <td><%= link_to flight.flight_number, flight_path(flight.id) %></td>
+      <td><%= flight.origin %></td>
+      <td><%= flight.destination %></td>
+      <td><%= flight.date %></td>
+    </tr>
+  <% end %>
+</table>

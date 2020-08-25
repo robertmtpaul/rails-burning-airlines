@@ -28,4 +28,15 @@ nav li {
 
 .info_container {
   border: 2px solid black;
+  border-radius: 20px;
+  margin-top: 10px;
+  width: 300px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+table, td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 2px;
 }
