@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Users', users_path %></li>
+        <li><%= link_to 'Airplanes', airplanes_path %></li>
+        <li><%= link_to 'Flights', flights_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>

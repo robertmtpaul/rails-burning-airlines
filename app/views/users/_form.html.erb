@@ -1,0 +1,23 @@
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :email %>
+  <br>
+  <%= f.text_field :email %>
+  <br>
+  <%= f.label :admin, 'Is Admin' %>
+  <br>
+  <%= f.select(:admin, options_for_select([['Yes', true], ['No', false]])) %>
+  <br>
+  <%= f.label :password %>
+  <br>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.label :password_confirmation, "Confirm Password" %>
+  <br>
+  <%= f.password_field :password_confirmation %>
+  <br>
+  <%= f.submit 'Submit' %>
+<% end %>
