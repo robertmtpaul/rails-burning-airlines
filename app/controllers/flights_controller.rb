@@ -9,8 +9,7 @@ class FlightsController < ApplicationController
     @flight = Flight.create flight_params
     # find the airplane attached tot this flight
     airplane = Airplane.find(Flight.find(@flight.id).airplane_id)
-    # calculate the number of seats on this flight
-    seats =  airplane.rows * airplane.columns
+
     chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
     airplane.rows.times do |i|
       airplane.columns.times do |j|
@@ -50,6 +49,16 @@ class FlightsController < ApplicationController
   def update
     flight = Flight.find params[:id]
     flight.update flight_params
+    # find the airplane attached tot this flight
+    airplane = Airplane.find(Flight.find(flight.id).airplane_id)
+
+    chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    Reservation.where(flight_id: flight.id).destroy_all
+    airplane.rows.times do |i|
+      airplane.columns.times do |j|
+        Reservation.create(flight_id: flight.id, seat_number: "#{i+1}#{chars[j]}")
+      end
+    end
     redirect_to flights_path
   end
 
