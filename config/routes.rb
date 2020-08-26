@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :flights
 
   get 'flights/search/:origin/:destination' => 'flights#search'
+  get 'airports' => 'pages#airports'
 
 
 end

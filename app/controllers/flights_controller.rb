@@ -79,6 +79,7 @@ class FlightsController < ApplicationController
   end
 
 
+
   private
 
   def flight_params
