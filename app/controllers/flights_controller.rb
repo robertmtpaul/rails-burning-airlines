@@ -20,6 +20,7 @@ class FlightsController < ApplicationController
   end
 
   def index
+    headers['Access-Control-Allow-Origin'] = '*'
     @flights = Flight.all
     respond_to do |format|
       format.html
@@ -29,6 +30,7 @@ class FlightsController < ApplicationController
 
 
   def show
+    headers['Access-Control-Allow-Origin'] = '*'
     @flight = Flight.find params[:id]
     @airplane = Airplane.find @flight.airplane_id
     @origin = Airport.find_by(code: @flight.origin)
@@ -69,7 +71,8 @@ class FlightsController < ApplicationController
   end
 
   def search
-    render json: Flight.where(origin: params[:origin], destination: params[:destination])
+    headers['Access-Control-Allow-Origin'] = '*'
+    render json: Flight.where(origin: params[:origin], destination: params[:destination], includes)
   end
 
 
