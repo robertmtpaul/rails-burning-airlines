@@ -72,7 +72,7 @@ class FlightsController < ApplicationController
 
   def search
     headers['Access-Control-Allow-Origin'] = '*'
-    render json: Flight.where(origin: params[:origin], destination: params[:destination], includes)
+    render json: {Flight.where(origin: params[:origin], destination: params[:destination]), include: ['airplane']}
   end
 
 
