@@ -4,3 +4,17 @@
 <p><strong>To: </strong><%= @destination.name %></p>
 <p><strong>Date: </strong><%=@flight.date %></p>
 <p><strong>Airplane: </strong><%= link_to @airplane.name, airplane_path(@airplane.id) %></p>
+
+<h3>Reservations:</h3>
+<table>
+  <tr>
+    <td>Seat Number</td>
+    <td>User ID</td>
+  </tr>
+  <% @reservations.each do |r| %>
+    <tr>
+      <td><%= r.seat_number %></td>
+      <td><%= r.user_id %></td>
+    </tr>
+  <% end %>
+</table>

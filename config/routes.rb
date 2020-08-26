@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root to: 'pages#home'
 
 
@@ -7,6 +6,8 @@ Rails.application.routes.draw do
   resources :users
   resources :airplanes
   resources :flights
+
+  get 'flights/search/:origin/:destination' => 'flights#search'
 
 
 end

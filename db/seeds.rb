@@ -63,11 +63,3 @@ puts 'Assigning flights to airplanes'
 a1.flights << flight1 << flight2
 a3.flights << flight3
 a5.flights << flight4
-
-
-puts ''
-puts 'Assigning users to flights'
-
-
-flight1.users << u1 << u2 << u4
-flight2.users << u3 << u4
