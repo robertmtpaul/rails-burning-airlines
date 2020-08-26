@@ -10,6 +10,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    respond_to do |format|
+      format.html
+      format.json {render json: @users}
+    end
   end
 
   def edit
@@ -26,7 +30,7 @@ class UsersController < ApplicationController
     user = User.find params[:id]
     user.destroy
     redirect_to users_path
-    
+
   end
 
   #private methods below
