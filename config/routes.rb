@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   get 'flights/search/:origin/:destination' => 'flights#search'
   get 'airports' => 'pages#airports'
 
+  post 'flights/:id/reservations' => 'reservations#update'
+
 
 end
