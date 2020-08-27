@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  skip_before_action :verify_authenticity_token, raise: false
+  
   def new
   end
 
@@ -23,7 +25,7 @@ class ReservationsController < ApplicationController
     new_reservations each do |reser|
       Reservation.create(flight_id: reser.flight_id, seat_number: reser.seat_number, user_id: reser.user_id)
     end
-    
+
 
   end
 
